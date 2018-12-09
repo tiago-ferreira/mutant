@@ -3,11 +3,11 @@ package br.com.mutant.test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import br.com.mutant.Main;
+import br.com.mutant.Mutant;
 
-public class MainTest {
+class MutantTest {
 
-	Main main = new Main();
+	Mutant main = new Mutant();
 	
 	
 	@Test
@@ -26,7 +26,21 @@ public class MainTest {
 	
 	
 	@Test
-	public void testByColumnMutant() {
+	public void testMutantByLine() {
+		String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCATA","TCACTG"};
+		boolean result = main.isMutant(dna);
+		Assertions.assertFalse(result);
+	}	
+	
+	@Test
+	public void testMutantByColumn() {
+		String[] dna = {"ATGCGA","CAGTGC","TTATGT","GAAAAG","CCCCTA","TCACTG"};
+		boolean result = main.isMutant(dna);
+		Assertions.assertTrue(result);
+	}	
+	
+	@Test
+	public void testMutantByObliquely() {
 		String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 		boolean result = main.isMutant(dna);
 		Assertions.assertTrue(result);
