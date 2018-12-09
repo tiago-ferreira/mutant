@@ -27,14 +27,14 @@ class MutantTest {
 	
 	@Test
 	public void testMutantByLine() {
-		String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCATA","TCACTG"};
+		String[] dna = {"ATGCGA","CGGTCC","TTATGT","AGAAGG","CCCATA","TCACTG"};
 		boolean result = main.isMutant(dna);
 		Assertions.assertFalse(result);
 	}	
 	
 	@Test
 	public void testMutantByColumn() {
-		String[] dna = {"ATGCGA","CAGTGC","TTATGT","GAAAAG","CCCCTA","TCACTG"};
+		String[] dna = {"ATGCGA","CAGTGC","TAATGT","GAAGAG","CACCTA","TCACTG"};
 		boolean result = main.isMutant(dna);
 		Assertions.assertTrue(result);
 	}	
@@ -46,4 +46,17 @@ class MutantTest {
 		Assertions.assertTrue(result);
 	}	
 	
+	@Test
+	public void testMutantOblique() {
+		String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAAG","CCTCTA","TCACTG"};
+		boolean result = main.isMutant(dna);
+		Assertions.assertTrue(result);
+	}	
+	
+	@Test
+	public void testMutantOtherOblique() {
+		String[] dna = {"AGCGTA", "CGTGAC", "TGTATT", "GAAAGA", "ATCTCC", "GTCACT"};
+		boolean result = main.isMutant(dna);
+		Assertions.assertFalse(result);
+	}
 }

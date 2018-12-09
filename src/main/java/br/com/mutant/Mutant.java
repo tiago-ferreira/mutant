@@ -12,19 +12,24 @@ public class Mutant {
 	
 	public boolean isMutant(String[] dna) {
 		char[] possibleLetters = {'A','C','G', 'T' };
-		boolean value = checkString(dna, possibleLetters);
+		boolean value = checkStrings(dna, possibleLetters);
 		if(value) {
 			return true;
 		}
 		String[] columns = getColumns(dna);
-		value = checkString(columns, possibleLetters);
+		value = checkStrings(columns, possibleLetters);
+		if(value) {
+			return true;
+		}
+		String oblique = getOblique(dna);
+		value = checkString(oblique, possibleLetters);
 		if(value) {
 			return true;
 		}
 		return false;
 	}
 
-	private boolean checkString(String[] dna, char[] possibleLetters) {
+	private boolean checkStrings(String[] dna, char[] possibleLetters) {
 		for(char letter : possibleLetters) {			
 			for(String line : dna) {
 				boolean value = checkLine(line, letter);
@@ -34,6 +39,31 @@ public class Mutant {
 			}
 		}
 		return false;
+	}
+	
+	private boolean checkString(String line, char[] possibleLetters) {
+		for(char letter : possibleLetters) {			
+				boolean value = checkLine(line, letter);
+				if(value) {
+					return true;
+				}
+		}
+		return false;
+	}
+	
+	private String getOblique(String[] dna) {
+		int size = dna.length;
+		String oblique = "";
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				if(i == j) {
+					oblique += dna[i].charAt(j);					
+				}
+				
+			}
+		}
+
+		return oblique;
 	}
 	
 	private String[] getColumns(String[] dna) {
