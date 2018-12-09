@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+  mutant:
+    build:
+      dockerfile: ./src/docker/Dockerfile
+      context: .
+    image: mutant
+    container_name: mutant
+    working_dir: /opt/app
+    ports:
+      - "8080:8080"
+    networks:
+      - mutant-network
+    depends_on:
+      - "mutant-mongo"
+  mutant-mongo:
+    image: mongo
+    container_name: mutant-mongo
+    networks:
+      - mutant-network
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+networks:
+  mutant-network:
+    driver: bridge

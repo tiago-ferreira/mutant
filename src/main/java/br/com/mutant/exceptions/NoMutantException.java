@@ -18,7 +18,7 @@ public class NoMutantException extends RuntimeException {
 	private String dna;
 
 	public NoMutantException(String dna) {
-		super(String.format("No Mutant : %s", dna));
+		super(String.format("No Mutant : %s ", dna));
 		this.dna = dna;
 	}
 
