@@ -2,14 +2,6 @@ package br.com.mutant;
 
 public class Mutant {
 
-	public static void main(String[] args) {
-		Mutant main = new Mutant();
-		String[] dna = { "ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG" };
-//		String[] dna = {"ATGCGA","CAGTGC","TTATTT","AGACGG","GCGTCA","TCACTG"};
-		boolean result = main.isMutant(dna);
-		System.out.println(result);
-	}
-	
 	public boolean isMutant(String[] dna) {
 		char[] possibleLetters = {'A','C','G', 'T' };
 		boolean value = checkStrings(dna, possibleLetters);
@@ -123,8 +115,8 @@ public class Mutant {
 		for(int i=0; i < pos.length -1; i++) {
 			if( (pos[i] + 1) == pos[i+1]) {
 				count++;
-				if(count == 4) { // case check occurrence in initial sequence return  
-					return 4;
+				if(count == 3) { // case check occurrence in initial sequence return  
+					return 3;
 				}
 			} else {
 				count = 0;

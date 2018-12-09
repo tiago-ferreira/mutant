@@ -33,6 +33,27 @@ class MutantTest {
 	}	
 	
 	@Test
+	public void testNoMutantByLine() {
+		String[] dna = {"ATGCGA","CGGTCC","TTTAGT","AGAAGG","CCCATA","TCACTG"};
+		boolean result = main.isMutant(dna);
+		Assertions.assertFalse(result);
+	}	
+	
+	@Test
+	public void testNoMutantByLineWithCharacters() {
+		String[] dna = {"UUUUUU","UUUUUU","TTTUUU","AGAAGG","CCCATA","TCACTG"};
+		boolean result = main.isMutant(dna);
+		Assertions.assertFalse(result);
+	}	
+	
+	@Test
+	public void testMutantByLineWithCharacters() {
+		String[] dna = {"UUUUUU","UUUUUU","TTTTUU","AGAAGG","CCCATA","TCACTG"};
+		boolean result = main.isMutant(dna);
+		Assertions.assertTrue(result);
+	}	
+	
+	@Test
 	public void testMutantByColumn() {
 		String[] dna = {"ATGCGA","CAGTGC","TAATGT","GAAGAG","CACCTA","TCACTG"};
 		boolean result = main.isMutant(dna);
