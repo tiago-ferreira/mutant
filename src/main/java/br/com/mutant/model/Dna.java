@@ -14,4 +14,7 @@ public class Dna {
 
 	private String[] dna;
 	private Boolean humam;
+	
+	
+
 }

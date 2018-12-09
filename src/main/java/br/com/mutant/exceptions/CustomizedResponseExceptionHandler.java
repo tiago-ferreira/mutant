@@ -22,10 +22,10 @@ public class CustomizedResponseExceptionHandler extends ResponseEntityExceptionH
         return new ResponseEntity<>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public final ResponseEntity<Object> handleAllExceptions(ResourceNotFoundException ex, WebRequest webRequest) {
+    @ExceptionHandler(NoMutantException.class)
+    public final ResponseEntity<Object> handleAllExceptions(NoMutantException ex, WebRequest webRequest) {
         ExceptionResponse exceptionResponse = new ExceptionResponse(LocalDateTime.now(), ex.getMessage(), webRequest.getDescription(false));
-        return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.FORBIDDEN);
     }
 
     @Override
