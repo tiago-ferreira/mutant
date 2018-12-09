@@ -7,10 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
-@EqualsAndHashCode(callSuper = false)
 public class NoMutantException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;

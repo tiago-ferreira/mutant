@@ -44,5 +44,16 @@ public class MutantControllerTest {
 		ResponseEntity<String> response = restTemplate.exchange("/mutant", HttpMethod.POST, entity, String.class);
 		Assertions.assertEquals(HttpStatus.FORBIDDEN, response.getStatusCode());
 	}
+	
+	
+	@Test
+	void testInvalidDna() {
+		String[] dnaValue = {"ATGCGA","CATGC","TTT","AGAG","GCGCA","TCACTG"};
+		Dna dna = new Dna();
+		dna.setDna(dnaValue);
+		HttpEntity<Dna> entity = new HttpEntity<Dna>(dna, headers);
+		ResponseEntity<String> response = restTemplate.exchange("/mutant", HttpMethod.POST, entity, String.class);
+		Assertions.assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+	}
 
 }
