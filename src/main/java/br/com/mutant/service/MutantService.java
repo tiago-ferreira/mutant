@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.mutant.business.MutantBusiness;
 import br.com.mutant.exceptions.NoMutantException;
 import br.com.mutant.model.Dna;
+import br.com.mutant.model.StatsResponse;
 import br.com.mutant.repository.MutantRepository;
 
 @Service
@@ -31,5 +32,14 @@ public class MutantService {
 	
 	public List<Dna> findAll() {
 		return mutantRepository.findAll();
+	}
+	
+	
+	public StatsResponse stats() {
+		Long humam = mutantRepository.countByHumam(false);
+		Long mutant = mutantRepository.countByHumam(true);
+		Double ratio = (double) ((humam + mutant) / 2);
+		
+		return new StatsResponse(mutant, humam, ratio);
 	}
 }
