@@ -57,6 +57,6 @@ class MutantTest {
 	public void testMutantOtherOblique() {
 		String[] dna = {"AGCGTA", "CGTGAC", "TGTATT", "GAAAGA", "ATCTCC", "GTCACT"};
 		boolean result = main.isMutant(dna);
-		Assertions.assertFalse(result);
+		Assertions.assertTrue(result);
 	}
 }

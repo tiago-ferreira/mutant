@@ -26,6 +26,12 @@ public class Mutant {
 		if(value) {
 			return true;
 		}
+		String[] dnaReverse = reverseStrings(dna);
+		oblique = getOblique(dnaReverse);
+		value = checkString(oblique, possibleLetters);
+		if(value) {
+			return true;
+		}
 		return false;
 	}
 
@@ -49,6 +55,15 @@ public class Mutant {
 				}
 		}
 		return false;
+	}
+	
+	private String[] reverseStrings(String[] dna) {
+		int size = dna.length;
+		String[] toReturn = new String[size];
+		for (int i=0; i<size; i++) {
+			toReturn[i] = new StringBuilder(dna[i]).reverse().toString();
+		}
+		return toReturn;
 	}
 	
 	private String getOblique(String[] dna) {
