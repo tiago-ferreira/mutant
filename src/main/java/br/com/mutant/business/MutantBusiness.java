@@ -1,6 +1,9 @@
-package br.com.mutant;
+package br.com.mutant.business;
 
-public class Mutant {
+import org.springframework.stereotype.Component;
+
+@Component
+public class MutantBusiness {
 
 	public boolean isMutant(String[] dna) {
 		char[] possibleLetters = {'A','C','G', 'T' };

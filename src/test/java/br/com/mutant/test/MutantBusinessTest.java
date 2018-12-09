@@ -3,11 +3,11 @@ package br.com.mutant.test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import br.com.mutant.Mutant;
+import br.com.mutant.business.MutantBusiness;
 
-class MutantTest {
+class MutantBusinessTest {
 
-	Mutant main = new Mutant();
+	MutantBusiness main = new MutantBusiness();
 	
 	
 	@Test

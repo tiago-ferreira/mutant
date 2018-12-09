@@ -1,11 +1,13 @@
 package br.com.mutant;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class Main {
 
 	public static void main(String[] args) {
-		Mutant mutant = new Mutant();
-		String[] dna = { "ATGCGA", "CAGTGC", "TTATGT", "AGAAGG", "CCCCTA", "TCACTG" };
-		mutant.isMutant(dna);
+		SpringApplication.run(Main.class, args);
 	}
 	
 }
