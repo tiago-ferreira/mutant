@@ -1,4 +1,4 @@
-package br.com.mutant.test;
+package br.com.mutant.business.test;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

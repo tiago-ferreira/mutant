@@ -3,12 +3,12 @@ package br.com.mutant.exceptions;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 @EqualsAndHashCode(callSuper = false)
 public class NoMutantException extends RuntimeException {
