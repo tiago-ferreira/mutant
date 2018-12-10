@@ -2,7 +2,7 @@ version: '3.1'
 services:
   mutant:
     build:
-      dockerfile: ./src/docker/Dockerfile
+      dockerfile: ./Dockerfile
       context: .
     image: mutant
     container_name: mutant
