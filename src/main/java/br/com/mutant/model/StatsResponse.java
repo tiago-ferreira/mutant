@@ -1,5 +1,7 @@
 package br.com.mutant.model;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
@@ -14,5 +16,5 @@ public class StatsResponse {
 	private Long countMutantDna;
 	@JsonProperty(value="count_human_dna")
 	private Long countHumamDna;
-	private Double ratio;
+	private BigDecimal ratio;
 }

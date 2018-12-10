@@ -1,6 +1,6 @@
 package br.com.mutant.service;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,8 +33,7 @@ public class MutantService {
 	public StatsResponse stats() {
 		Long humam = mutantRepository.countByHumam(false);
 		Long mutant = mutantRepository.countByHumam(true);
-		Double ratio = (double) ((humam + mutant) / 2);
-		
+		BigDecimal ratio = new BigDecimal((double) mutant / humam).setScale(2, BigDecimal.ROUND_HALF_EVEN);
 		return new StatsResponse(mutant, humam, ratio);
 	}
 }
