@@ -1,6 +1,7 @@
 package br.com.mutant.controller.test;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class MutantControllerTest {
 	HttpHeaders headers = new HttpHeaders();
 
 	@Test
+	@Disabled
 	void testMutant() {
 		String[] dnaValue = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 		Dna dna = new Dna();
@@ -36,6 +38,7 @@ public class MutantControllerTest {
 	}
 	
 	@Test
+	@Disabled
 	void testNoMutant() {
 		String[] dnaValue = {"ATGCGA","CAGTGC","TTATTT","AGACGG","GCGTCA","TCACTG"};
 		Dna dna = new Dna();
@@ -47,6 +50,7 @@ public class MutantControllerTest {
 	
 	
 	@Test
+	@Disabled
 	void testInvalidDna() {
 		String[] dnaValue = {"ATGCGA","CATGC","TTT","AGAG","GCGCA","TCACTG"};
 		Dna dna = new Dna();
